@@ -1,0 +1,98 @@
+@mixin media-up($name) {
+  $breakpoints: () !default;
+
+  // 預設範圍
+  $defaults: (
+    sm:576px auto,
+    md:768px auto,
+    lg:992px auto,
+    xl:1200px auto,
+    xxl: 1440px auto
+  );
+
+  // 先去 breakpoint (自定義) 取參數，如果沒有才會去 defaults (預設) 取得參數。
+  $point: map-get($breakpoints, $name) or map-get($defaults, $name);
+
+  @if $point {
+    // min 跟 max 分別取出 point 中的最小最大值
+    $min: nth($point, 1);
+    $max: nth($point, 2);
+
+    // 依據 min 跟 max 判別要顯示哪一段 media query
+    @if $min == auto {
+      @media (max-width: $max) {
+        // 是 ＠mixin { } 中的內容，而一個 mixin 只能擁有一個
+        @content;
+      }
+    } @else if $max == auto {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    }
+  }
+}
+
+
+@mixin media-down($name) {
+  $breakpoints: (
+    sm_1:auto 575px,
+    md_1:auto 767px,
+    lg_1:auto 991px,
+    xl_1:auto 1199px,
+    xxl_1: auto 1439px
+  ) !default;
+
+  // 預設範圍
+  $defaults: (
+    sm:auto 576px,
+    md:auto 768px,
+    lg:auto 992px,
+    xl:auto 1200px,
+    xxl: auto 1440px
+  );
+
+  // 先去 breakpoint (自定義) 取參數，如果沒有才會去 defaults (預設) 取得參數。
+  $point: map-get($breakpoints, $name) or map-get($defaults, $name);
+
+  @if $point {
+    // min 跟 max 分別取出 point 中的最小最大值
+    $min: nth($point, 1);
+    $max: nth($point, 2);
+
+    // 依據 min 跟 max 判別要顯示哪一段 media query
+    @if $min == auto {
+      @media (max-width: $max) {
+        // 是 ＠mixin { } 中的內容，而一個 mixin 只能擁有一個
+        @content;
+      }
+    } @else if $max == auto {
+      @media (min-width: $min) {
+        @content;
+      }
+    } @else {
+      @media (min-width: $min) and (max-width: $max) {
+        @content;
+      }
+    }
+  }
+}
+
+.col-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.col-container {
+  width: 100%;
+  max-width: 1260px;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}

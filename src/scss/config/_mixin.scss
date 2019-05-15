@@ -1,0 +1,28 @@
+// 背景覆蓋樣式
+@mixin bgcover {
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@mixin bgcover-center {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+// 文字超過出現點點點
+@mixin textflowell {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// 清除select下拉樣式
+@mixin selectAppearance {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    &::-ms-expand {
+        display: none;
+    }
+}

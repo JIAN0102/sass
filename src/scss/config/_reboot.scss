@@ -1,0 +1,61 @@
+@font-face {
+  font-family: 'Avenir LT Std 55 Roman';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Std 55 Roman'), url('../font/AvenirLTStd-Roman.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Avenir LT Std 85 Heavy';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Avenir LT Std 85 Heavy'), url('../font/AvenirLTStd-Heavy.woff') format('woff');
+}
+
+* {
+  box-sizing: border-box;
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+input, select, textarea {
+  &:focus {
+    outline: none;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+h1 {
+  font-family: 'Avenir LT Std 85 Heavy';
+}
